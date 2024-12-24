@@ -1,7 +1,5 @@
 import { SignClient } from "@walletconnect/sign-client";
 import QRCodeModal from "@walletconnect/qrcode-modal";
-import dotenv from "dotenv";
-dotenv.config();
 
 const namespaces = {
   eip155: {
@@ -24,10 +22,9 @@ const namespaces = {
 
 export const connectWallet = async () => {
   try {
-    const projectId = process.env.WALLETCONNECT_PROJECT_ID;
-
+    const projectId = "your-project-id";
     if (!projectId) {
-      throw new Error("Project ID is not defined in the .env file");
+      throw new Error("Project ID is not defined");
     }
 
     const client = await SignClient.init({
